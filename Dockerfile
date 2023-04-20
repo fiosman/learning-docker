@@ -1,5 +1,5 @@
 # Grab base image for Node (v16)
-FROM node:16-alpine
+FROM node:16-alpine AS base
 
 # Set the working directory inside the container
 WORKDIR /app 
@@ -11,5 +11,10 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Set the command to start the application
-CMD ["node", "app.js"]
+# Development image 
+FROM base AS dev 
+
+ENV NODE_ENV=development
+
+EXPOSE 3000
+CMD ["npm", "run", "dev"]
