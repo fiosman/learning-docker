@@ -18,3 +18,10 @@ ENV NODE_ENV=development
 
 EXPOSE 3000
 CMD ["npm", "run", "dev"]
+
+# Testing image
+FROM base as test 
+
+ENV NODE_ENV=testing 
+
+CMD ["npm", "run", "test"]
