@@ -25,3 +25,13 @@ FROM base as test
 ENV NODE_ENV=testing 
 
 CMD ["npm", "run", "test"]
+
+# Production image 
+FROM base AS prod
+
+ENV NODE_ENV=production
+
+HEALTHCHECK --interval=30s --timeout=5s \
+  CMD curl --fail http://localhost:3000/health || exit 1
+
+CMD ["npm", "run", "start"]
