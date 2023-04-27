@@ -7,4 +7,4 @@ docker stop learndocker && docker rm learndocker
 docker build -t learndocker .
 
 # Run the Docker container
-docker run -d --name learndocker -p 3000:3000 learndocker
+docker run -d --name learndocker -p 8080:8080 learndocker
