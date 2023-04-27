@@ -16,7 +16,7 @@ FROM base AS dev
 
 ENV NODE_ENV=development
 
-EXPOSE 3000
+EXPOSE 8080
 CMD ["npm", "run", "dev"]
 
 # Testing image
